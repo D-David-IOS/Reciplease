@@ -1,19 +1,21 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  Reciplease
 //
-//  Created by David-IOS on 06/08/2021.
+//  Created by David-IOS on 08/08/2021.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
 
 }
-

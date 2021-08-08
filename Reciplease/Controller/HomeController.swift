@@ -11,6 +11,13 @@ class HomeController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchRecipe: UIButton!
+    
+    
+    
+    var recip = RecipeRequest(session : URLSession(configuration: .default))
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -18,6 +25,13 @@ class HomeController: UIViewController {
 
     
 
+    @IBAction func searchButton(_ sender: Any) {
+        recip.getRecipe(request: recip.createRecipRequest()) { (true, recipe ) in
+            print(recipe)
+            print(recipe?.links.next.href)
+        }
+    }
+    
 }
 
 extension HomeController: UITableViewDataSource {

@@ -8,5 +8,9 @@
 import Foundation
 
 class ingredient {
-    static let ingredient = ["chicken","lemon","apple","lemon","apple","lemon","apple","lemon","apple","lemon","apple","lemon","apple"]
+    static let ingredient = ["chicken","lemon","apple"]
+    
+    static var titleCell = [""]
+    
+    static var descriptionCell = [""]
 }
