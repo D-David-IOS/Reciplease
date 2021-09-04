@@ -7,7 +7,11 @@
 
 import UIKit
 
+import Alamofire
+
 class HomeController: UIViewController {
+    
+    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,8 +31,6 @@ class HomeController: UIViewController {
 
     @IBAction func searchButton(_ sender: Any) {
         recip.getRecipe(request: recip.createRecipRequest()) { (true, recipe ) in
-            print(recipe)
-            print(recipe?.links.next.href)
         }
     }
     

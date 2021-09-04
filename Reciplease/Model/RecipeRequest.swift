@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class RecipeRequest {
     
@@ -21,6 +22,11 @@ class RecipeRequest {
     // Recipe : contains the Recipe with ingredients etc...
     func getRecipe(request : URLRequest, callback : @escaping (Bool, Recipes?) -> Void){
         do {
+            
+            
+            print(osef)
+            
+            
             var task : URLSessionDataTask?
             
             task?.cancel()
