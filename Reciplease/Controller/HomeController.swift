@@ -6,10 +6,9 @@
 //
 
 import UIKit
-
 import Alamofire
 
-class HomeController: UIViewController {
+class HomeController: UIViewController,UINavigationControllerDelegate  {
     
     
 
@@ -30,8 +29,16 @@ class HomeController: UIViewController {
     
 
     @IBAction func searchButton(_ sender: Any) {
-        recip.getRecipe(request: recip.createRecipRequest()) { (true, recipe ) in
-        }
+        let routingEntry = RecipListControllerRoutingEntry()
+        let navController = self.navigationController
+        
+        let newRouting = Routing()
+        let navStyle = PushNavigationStyle(fromNVC: navController!,
+                                           routingEntry: routingEntry)
+        
+        _ = newRouting
+            .route(navigationStyle: navStyle,
+                   animated: true)
     }
     
 }

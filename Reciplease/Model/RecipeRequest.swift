@@ -23,8 +23,7 @@ class RecipeRequest {
     func getRecipe(request : URLRequest, callback : @escaping (Bool, Recipes?) -> Void){
         do {
             
-            
-            print(osef)
+         
             
             
             var task : URLSessionDataTask?

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,9 +20,29 @@
 		3D522B6026BD7A1B00FABC8B /* RecipleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D522B5F26BD7A1B00FABC8B /* RecipleaseUITests.swift */; };
 		3D522B7426BD95C100FABC8B /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D522B7326BD95C100FABC8B /* HomeController.swift */; };
 		3D522B7626BD96C600FABC8B /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D522B7526BD96C600FABC8B /* Ingredient.swift */; };
+		3D98607226EBB6E90017769D /* ScrollableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607126EBB6E90017769D /* ScrollableViewModel.swift */; };
+		3D98607426ECAC0D0017769D /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607326ECAC0D0017769D /* Sections.swift */; };
+		3D98607626ECAC530017769D /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607526ECAC530017769D /* CellViewModel.swift */; };
+		3D98607826ECAD5B0017769D /* UITableViewCell+CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607726ECAD5B0017769D /* UITableViewCell+CellConfigurable.swift */; };
+		3D98607A26ECAD880017769D /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607926ECAD880017769D /* CellConfigurable.swift */; };
+		3D98607D26ECB4DC0017769D /* RountingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607C26ECB4DC0017769D /* RountingEntry.swift */; };
+		3D98607F26ECB50B0017769D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98607E26ECB50B0017769D /* Controller.swift */; };
+		3D98608126ECB5670017769D /* RecipListControllerRoutingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608026ECB5670017769D /* RecipListControllerRoutingEntry.swift */; };
+		3D98608426ECB5F60017769D /* ListRecipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608326ECB5F60017769D /* ListRecipViewModel.swift */; };
+		3D98608626ECB6900017769D /* ListRecipSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608526ECB6900017769D /* ListRecipSection.swift */; };
+		3D98608926ECB83B0017769D /* RecipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608726ECB83B0017769D /* RecipTableViewCell.swift */; };
+		3D98608A26ECB83B0017769D /* RecipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D98608826ECB83B0017769D /* RecipTableViewCell.xib */; };
+		3D98608C26ECBC1B0017769D /* RecipCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608B26ECBC1B0017769D /* RecipCellViewModel.swift */; };
+		3D98608E26ECC10B0017769D /* UIViewController+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608D26ECC10B0017769D /* UIViewController+Controller.swift */; };
+		3D98609126ECC5390017769D /* RecipListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98608F26ECC5390017769D /* RecipListViewController.swift */; };
+		3D98609226ECC5390017769D /* RecipListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D98609026ECC5390017769D /* RecipListViewController.xib */; };
+		3D98609426ECC6A00017769D /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98609326ECC6A00017769D /* Routing.swift */; };
+		3D98609626ECC6BF0017769D /* NavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98609526ECC6BF0017769D /* NavigationStyle.swift */; };
+		3D98609826ECC70A0017769D /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98609726ECC70A0017769D /* NavController.swift */; };
+		3D98609A26ECC74A0017769D /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98609926ECC74A0017769D /* Navigator.swift */; };
+		3D98609C26ECCAB40017769D /* UINavigationController+NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98609B26ECCAB40017769D /* UINavigationController+NavController.swift */; };
 		3DF4D86D26C01FDE0008F157 /* RecipeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D86C26C01FDE0008F157 /* RecipeObject.swift */; };
 		3DF4D86F26C01FF40008F157 /* RecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D86E26C01FF40008F157 /* RecipeRequest.swift */; };
-		3DF4D87326C03CB20008F157 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D87226C03CB20008F157 /* RecipeTableViewCell.swift */; };
 		3DF4D87926C041DC0008F157 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D87826C041DC0008F157 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +82,29 @@
 		3D522B6126BD7A1B00FABC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D522B7326BD95C100FABC8B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		3D522B7526BD96C600FABC8B /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		3D98607126EBB6E90017769D /* ScrollableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewModel.swift; sourceTree = "<group>"; };
+		3D98607326ECAC0D0017769D /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
+		3D98607526ECAC530017769D /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		3D98607726ECAD5B0017769D /* UITableViewCell+CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellConfigurable.swift"; sourceTree = "<group>"; };
+		3D98607926ECAD880017769D /* CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
+		3D98607C26ECB4DC0017769D /* RountingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RountingEntry.swift; sourceTree = "<group>"; };
+		3D98607E26ECB50B0017769D /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		3D98608026ECB5670017769D /* RecipListControllerRoutingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipListControllerRoutingEntry.swift; sourceTree = "<group>"; };
+		3D98608326ECB5F60017769D /* ListRecipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipViewModel.swift; sourceTree = "<group>"; };
+		3D98608526ECB6900017769D /* ListRecipSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipSection.swift; sourceTree = "<group>"; };
+		3D98608726ECB83B0017769D /* RecipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipTableViewCell.swift; sourceTree = "<group>"; };
+		3D98608826ECB83B0017769D /* RecipTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipTableViewCell.xib; sourceTree = "<group>"; };
+		3D98608B26ECBC1B0017769D /* RecipCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipCellViewModel.swift; sourceTree = "<group>"; };
+		3D98608D26ECC10B0017769D /* UIViewController+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Controller.swift"; sourceTree = "<group>"; };
+		3D98608F26ECC5390017769D /* RecipListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipListViewController.swift; sourceTree = "<group>"; };
+		3D98609026ECC5390017769D /* RecipListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipListViewController.xib; sourceTree = "<group>"; };
+		3D98609326ECC6A00017769D /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		3D98609526ECC6BF0017769D /* NavigationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStyle.swift; sourceTree = "<group>"; };
+		3D98609726ECC70A0017769D /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		3D98609926ECC74A0017769D /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		3D98609B26ECCAB40017769D /* UINavigationController+NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavController.swift"; sourceTree = "<group>"; };
 		3DF4D86C26C01FDE0008F157 /* RecipeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeObject.swift; sourceTree = "<group>"; };
 		3DF4D86E26C01FF40008F157 /* RecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRequest.swift; sourceTree = "<group>"; };
-		3DF4D87226C03CB20008F157 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		3DF4D87826C041DC0008F157 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5F81A85029D9A7BB41FA0AFF /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		653D0A9A50899C97E32ADF56 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3D522B3926BD7A1900FABC8B /* Reciplease */,
+				3D522B6E26BD7A9300FABC8B /* View */,
 				3D522B5326BD7A1B00FABC8B /* RecipleaseTests */,
 				3D522B5E26BD7A1B00FABC8B /* RecipleaseUITests */,
 				3D522B3826BD7A1900FABC8B /* Products */,
@@ -128,10 +169,11 @@
 		3D522B3926BD7A1900FABC8B /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				3D98607B26ECB4C30017769D /* Navigation */,
 				3D522B4B26BD7A1B00FABC8B /* Info.plist */,
 				3D522B7026BD7AB000FABC8B /* Supporting Files */,
 				3D522B6F26BD7A9C00FABC8B /* Controller */,
-				3D522B6E26BD7A9300FABC8B /* View */,
+				3D98606D26EBB6000017769D /* ViewModel */,
 				3D522B6D26BD7A8C00FABC8B /* Model */,
 			);
 			path = Reciplease;
@@ -168,9 +210,9 @@
 		3D522B6E26BD7A9300FABC8B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D522B4826BD7A1B00FABC8B /* LaunchScreen.storyboard */,
 				3D522B4026BD7A1900FABC8B /* Main.storyboard */,
-				3DF4D87226C03CB20008F157 /* RecipeTableViewCell.swift */,
+				3D98608726ECB83B0017769D /* RecipTableViewCell.swift */,
+				3D98608826ECB83B0017769D /* RecipTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +222,8 @@
 			children = (
 				3D522B7326BD95C100FABC8B /* HomeController.swift */,
 				3DF4D87826C041DC0008F157 /* ListViewController.swift */,
+				3D98608F26ECC5390017769D /* RecipListViewController.swift */,
+				3D98609026ECC5390017769D /* RecipListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,12 +231,76 @@
 		3D522B7026BD7AB000FABC8B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D522B4826BD7A1B00FABC8B /* LaunchScreen.storyboard */,
 				3D522B4326BD7A1900FABC8B /* Reciplease.xcdatamodeld */,
 				3D522B4626BD7A1B00FABC8B /* Assets.xcassets */,
 				3D522B3C26BD7A1900FABC8B /* SceneDelegate.swift */,
 				3D522B3A26BD7A1900FABC8B /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D98606D26EBB6000017769D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D98608226ECB5E10017769D /* ViewModel */,
+				3D98607026EBB6B10017769D /* Protocols */,
+				3D98606E26EBB6360017769D /* Sections */,
+				3D98606F26EBB6570017769D /* CellViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D98606E26EBB6360017769D /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				3D98608526ECB6900017769D /* ListRecipSection.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		3D98606F26EBB6570017769D /* CellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D98608B26ECBC1B0017769D /* RecipCellViewModel.swift */,
+			);
+			path = CellViewModel;
+			sourceTree = "<group>";
+		};
+		3D98607026EBB6B10017769D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3D98607126EBB6E90017769D /* ScrollableViewModel.swift */,
+				3D98607326ECAC0D0017769D /* Sections.swift */,
+				3D98607526ECAC530017769D /* CellViewModel.swift */,
+				3D98607726ECAD5B0017769D /* UITableViewCell+CellConfigurable.swift */,
+				3D98607926ECAD880017769D /* CellConfigurable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3D98607B26ECB4C30017769D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3D98607C26ECB4DC0017769D /* RountingEntry.swift */,
+				3D98607E26ECB50B0017769D /* Controller.swift */,
+				3D98608026ECB5670017769D /* RecipListControllerRoutingEntry.swift */,
+				3D98608D26ECC10B0017769D /* UIViewController+Controller.swift */,
+				3D98609326ECC6A00017769D /* Routing.swift */,
+				3D98609526ECC6BF0017769D /* NavigationStyle.swift */,
+				3D98609726ECC70A0017769D /* NavController.swift */,
+				3D98609926ECC74A0017769D /* Navigator.swift */,
+				3D98609B26ECCAB40017769D /* UINavigationController+NavController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		3D98608226ECB5E10017769D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D98608326ECB5F60017769D /* ListRecipViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6D9E2FF3EF99EB9D69DF8B9E /* Frameworks */ = {
@@ -215,7 +323,6 @@
 				E8821F5756311D7E3FD411E8 /* Pods-RecipleaseTests.debug.xcconfig */,
 				8E10E79C30ADEE43E66F5F92 /* Pods-RecipleaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -328,6 +435,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D522B4A26BD7A1B00FABC8B /* LaunchScreen.storyboard in Resources */,
+				3D98609226ECC5390017769D /* RecipListViewController.xib in Resources */,
+				3D98608A26ECB83B0017769D /* RecipTableViewCell.xib in Resources */,
 				3D522B4726BD7A1B00FABC8B /* Assets.xcassets in Resources */,
 				3D522B4226BD7A1900FABC8B /* Main.storyboard in Resources */,
 			);
@@ -457,15 +566,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D98608126ECB5670017769D /* RecipListControllerRoutingEntry.swift in Sources */,
+				3D98609626ECC6BF0017769D /* NavigationStyle.swift in Sources */,
+				3D98607426ECAC0D0017769D /* Sections.swift in Sources */,
+				3D98609A26ECC74A0017769D /* Navigator.swift in Sources */,
+				3D98608C26ECBC1B0017769D /* RecipCellViewModel.swift in Sources */,
 				3D522B4526BD7A1900FABC8B /* Reciplease.xcdatamodeld in Sources */,
+				3D98607A26ECAD880017769D /* CellConfigurable.swift in Sources */,
 				3D522B7626BD96C600FABC8B /* Ingredient.swift in Sources */,
+				3D98609426ECC6A00017769D /* Routing.swift in Sources */,
+				3D98608926ECB83B0017769D /* RecipTableViewCell.swift in Sources */,
 				3DF4D86D26C01FDE0008F157 /* RecipeObject.swift in Sources */,
+				3D98609826ECC70A0017769D /* NavController.swift in Sources */,
+				3D98608E26ECC10B0017769D /* UIViewController+Controller.swift in Sources */,
 				3D522B3B26BD7A1900FABC8B /* AppDelegate.swift in Sources */,
+				3D98607826ECAD5B0017769D /* UITableViewCell+CellConfigurable.swift in Sources */,
+				3D98608626ECB6900017769D /* ListRecipSection.swift in Sources */,
+				3D98608426ECB5F60017769D /* ListRecipViewModel.swift in Sources */,
 				3D522B3D26BD7A1900FABC8B /* SceneDelegate.swift in Sources */,
+				3D98607226EBB6E90017769D /* ScrollableViewModel.swift in Sources */,
 				3DF4D87926C041DC0008F157 /* ListViewController.swift in Sources */,
+				3D98609126ECC5390017769D /* RecipListViewController.swift in Sources */,
 				3D522B7426BD95C100FABC8B /* HomeController.swift in Sources */,
+				3D98609C26ECCAB40017769D /* UINavigationController+NavController.swift in Sources */,
 				3DF4D86F26C01FF40008F157 /* RecipeRequest.swift in Sources */,
-				3DF4D87326C03CB20008F157 /* RecipeTableViewCell.swift in Sources */,
+				3D98607626ECAC530017769D /* CellViewModel.swift in Sources */,
+				3D98607D26ECB4DC0017769D /* RountingEntry.swift in Sources */,
+				3D98607F26ECB50B0017769D /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
