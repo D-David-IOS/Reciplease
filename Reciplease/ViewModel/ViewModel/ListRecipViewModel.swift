@@ -11,11 +11,13 @@ class ListRecipViewModel : ScrollableViewModel {
     
     var sections = [Section]()
     
-    func loadData(callback: () -> ()) {
-        sections.append(ListRecipSection())
-
-        callback()
+    func loadData(callback: @escaping () -> ()) {
+        
+        RecipeRequest.shared.getRecipe { success, Recipe in
+            // need implement empty result
+            self.sections.append(ListRecipSection(listRecip: Recipe!.hits))
+            callback()
+        }
     }
-    
-    
+  
 }

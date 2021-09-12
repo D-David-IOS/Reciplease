@@ -11,18 +11,26 @@ class ListRecipSection : Section {
     var position: Int
     
     var title: String
-    
 
     var cellsVM: [CellViewModel]
     
-    init() {
+    var listRecip : [Hit]
+    
+    init(listRecip : [Hit]) {
         self.position = 0
         self.title = ""
         self.cellsVM = [CellViewModel]()
+        self.listRecip = listRecip
         
-        let recipCell = RecipCellViewModel(title: "title", ingredients: "tomatoes, mushrooms", imagebackground: URL(fileURLWithPath: "blabla"), routingEntry: RecipListControllerRoutingEntry())
-        cellsVM.append(recipCell)
 
-      
+    for index in 0..<(listRecip.count) {
+        self.cellsVM.append(RecipCellViewModel(
+            recipe: listRecip[index].recipe,
+                                routingEntry: RecipDetailsRoutingEntry(recipe: listRecip[index].recipe)))
+        }
+ 
     }
+    
+
+    
 }

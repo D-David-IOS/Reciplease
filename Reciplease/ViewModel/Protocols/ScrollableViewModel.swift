@@ -11,7 +11,7 @@ protocol ScrollableViewModel {
         
     var sections: [Section] { get set }
     
-    func loadData(callback: () -> ())
+    func loadData(callback: @escaping () -> ())
     
 }
 

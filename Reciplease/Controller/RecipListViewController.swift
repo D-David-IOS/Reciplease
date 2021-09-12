@@ -23,15 +23,14 @@ class RecipListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
-        
+        navigationItem.title = "Reciplease"
        }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-       
-        
-        tableView.separatorColor = UIColor.white
+        tableView.backgroundColor = .yellow
+        tableView.separatorColor = .none
         tableView.delegate = self
         tableView.dataSource = self
         

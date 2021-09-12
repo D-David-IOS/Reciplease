@@ -20,15 +20,11 @@ class RecipCellViewModel : TableCellViewModel {
 
     var routingEntry: RoutingEntry?
     
-    var title: String?
-    var ingredients: String?
-    var imageBackground: URL
+    var recipe : Recipe
     
-    init(title: String, ingredients: String, imagebackground: URL, routingEntry: RoutingEntry) {
+    init(recipe : Recipe, routingEntry: RoutingEntry) {
         
-        self.title = title
-        self.ingredients = ingredients
-        self.imageBackground = imagebackground
+        self.recipe = recipe
         self.routingEntry = routingEntry
     }
     

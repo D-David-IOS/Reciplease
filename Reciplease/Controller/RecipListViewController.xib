@@ -22,10 +22,11 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SSv-kn-gaB">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="sectionIndexBackgroundColor" red="0.2160621881" green="0.20019045469999999" blue="0.196036458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.2160621881" green="0.20019045469999999" blue="0.196036458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SSv-kn-gaB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Z0-xo-bpd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SSv-kn-gaB" secondAttribute="bottom" id="RuF-1g-yzf"/>

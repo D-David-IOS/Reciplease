@@ -41,6 +41,7 @@ class Routing: NSObject, Navigator {
     func route(navigationStyle: NavigationStyle, animated: Bool = true) -> Navigator {
         navigationStyle.navigate(animated: animated)
         self.lastNavigationStyle = navigationStyle
+        
         return self
     }
 }

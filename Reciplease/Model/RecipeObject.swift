@@ -58,7 +58,7 @@ struct Recipe: Decodable {
 struct Ingredient: Decodable {
     let text: String
     let weight: Double
-
+    let foodCategory: String?
 }
 
 // MARK: - RecipesLinks

@@ -44,11 +44,11 @@
             </objects>
             <point key="canvasLocation" x="572" y="-238"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="gbu-ik-3mb">
             <objects>
                 <navigationController id="QCF-gC-Cgr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="star" catalog="system" id="vcF-IK-2xA"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="vcF-IK-2xA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CdV-tE-cjr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -86,7 +86,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EtD-tq-VfH">
                                                     <rect key="frame" x="16" y="0.0" width="288" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -108,6 +108,9 @@
                                         <state key="normal" title="Add">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addButton:" destination="zUd-kS-VaO" eventType="touchUpInside" id="sj0-pP-CXM"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVN-vQ-Ia3">
                                         <rect key="frame" x="12" y="12" width="296" height="22.5"/>
@@ -118,7 +121,7 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-dc-jsw">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Chiken ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-dc-jsw">
                                         <rect key="frame" x="8" y="47.5" width="235.5" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -169,7 +172,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Your ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaC-26-Trv">
                                         <rect key="frame" x="4" y="4" width="235.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -182,6 +185,9 @@
                                         <state key="normal" title="Clear">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clearButton:" destination="zUd-kS-VaO" eventType="touchUpInside" id="w88-w9-8pj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2160621881" green="0.20019045469999999" blue="0.196036458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -224,6 +230,9 @@
                     <tabBarItem key="tabBarItem" title="Search" springLoaded="YES" id="Hw4-pd-j8z"/>
                     <navigationItem key="navigationItem" title="Reciplease" id="9DY-Tm-fnM"/>
                     <connections>
+                        <outlet property="addIngredientButton" destination="Qzu-dg-2UP" id="9mw-Ut-Q0R"/>
+                        <outlet property="clearButton" destination="pSx-f4-qSW" id="C46-eY-e8x"/>
+                        <outlet property="ingredientTextField" destination="aw1-dc-jsw" id="E7V-Nx-UP5"/>
                         <outlet property="searchRecipe" destination="Q1P-KZ-FLC" id="RnY-xZ-LLw"/>
                         <outlet property="tableView" destination="wVo-FA-4hV" id="Lt3-jL-fw8"/>
                     </connections>
@@ -232,11 +241,11 @@
             </objects>
             <point key="canvasLocation" x="1508" y="-239"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Reciplease-->
         <scene sceneID="VUz-fN-JTV">
             <objects>
-                <tabBarController id="MdV-Xz-lMM" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleAspectFill" semanticContentAttribute="spatial" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="fill" id="HYf-so-v2Q">
+                <tabBarController title="Reciplease" id="MdV-Xz-lMM" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" semanticContentAttribute="spatial" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="HYf-so-v2Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.2160621881" green="0.20019045469999999" blue="0.196036458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

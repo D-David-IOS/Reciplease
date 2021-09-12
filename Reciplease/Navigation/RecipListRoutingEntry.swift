@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RecipListControllerRoutingEntry : RoutingEntry {
+class RecipListRoutingEntry : RoutingEntry {
     var viewController: Controller? {
         let viewModel = ListRecipViewModel()
         return RecipListViewController(viewModel: viewModel)
