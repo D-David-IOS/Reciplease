@@ -13,9 +13,15 @@ class ListRecipViewModel : ScrollableViewModel {
     
     func loadData(callback: @escaping () -> ()) {
         
-        RecipeRequest.shared.getRecipe { success, Recipe in
-            // need implement empty result
-            self.sections.append(ListRecipSection(listRecip: Recipe!.hits))
+        RecipeRequest.shared.getRecipe { success, recipe in
+            
+            guard recipe != nil else {
+                self.sections.append(ListRecipSection(listRecip: []))
+                callback()
+                return
+            }
+            
+            self.sections.append(ListRecipSection(listRecip: recipe!.hits))
             callback()
         }
     }

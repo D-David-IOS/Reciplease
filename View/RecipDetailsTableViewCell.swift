@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class RecipDetailsTableViewCell: UITableViewCell {
 
-    
+    var recipe : Recipe?
     
     @IBOutlet weak var recipImage: UIImageView!
     @IBOutlet weak var smallImage: UIView!
@@ -17,25 +18,37 @@ class RecipDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
     
-    
-    override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
-        
-    }
-    
+
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? RecipDetailsCellViewModel else {
             return
         }
+        self.recipe = tableCVM.recipe
         self.smallImage.layer.borderWidth = 1
         self.smallImage.layer.cornerRadius = 2
         self.smallImage.layer.borderColor = UIColor.white.cgColor
-        self.yieldLabel.text = String(tableCVM.yield)+" "
-        self.totalTimeLabel.text = String(tableCVM.totalTime)+" m"
+        self.yieldLabel.text = String(tableCVM.recipe.yield)+" "
+        self.totalTimeLabel.text = String(tableCVM.recipe.totalTime)+" m"
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.recipImage) { image in
+        RecipeRequest.shared.getImage(imageUrl: tableCVM.recipe.image) { image in
             self.recipImage.image = image
         }
         
     }
     
+    @IBAction func addFavorite(_ sender: Any) {
+        starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        starButton.isEnabled = false
+        saveRecip(recipe: recipe!)
+    }
+    
+    private func saveRecip(recipe : Recipe){
+        let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
+        favoriteRecipe.title = recipe.label
+        favoriteRecipe.image = recipe.image
+        favoriteRecipe.ingredients = recipe.ingredientLines
+        favoriteRecipe.yield = String(recipe.yield)
+        favoriteRecipe.totalTime = String(recipe.totalTime)
+        try? AppDelegate.viewContext.save()
+    }
 }

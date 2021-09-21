@@ -8,9 +8,9 @@
 import Foundation
 
 class RecipDetailsCellViewModel : TableCellViewModel {
-    var height: Float = 194
+    var height: Float = 199
     
-    var estimatedHeight: Float = 194
+    var estimatedHeight: Float = 199
     
     var indexPath: IndexPath?
     
@@ -19,17 +19,11 @@ class RecipDetailsCellViewModel : TableCellViewModel {
     lazy var reuseIdentifier: String = String(describing: self)
 
     var routingEntry: RoutingEntry?
-    
 
-    var recipImage: String
-    var yield : Int
-    var totalTime : Int
+    var recipe : Recipe
     
-    init(recipImage: String,yield : Int, totalTime : Int) {
-        
-        self.recipImage = recipImage
-        self.yield = yield
-        self.totalTime = totalTime
+    init(recipe : Recipe) {
+        self.recipe = recipe
     }
     
 }

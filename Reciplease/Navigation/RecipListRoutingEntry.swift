@@ -10,7 +10,7 @@ import Foundation
 class RecipListRoutingEntry : RoutingEntry {
     var viewController: Controller? {
         let viewModel = ListRecipViewModel()
-        return RecipListViewController(viewModel: viewModel)
+        return TableViewController(viewModel: viewModel)
     }
     
     var completionBlock: (() -> Void)?

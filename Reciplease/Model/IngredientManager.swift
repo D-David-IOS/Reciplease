@@ -7,12 +7,19 @@
 
 import Foundation
 
-class ingredientManager {
+class ingredientManager  {
+   
     
     static let shared = ingredientManager()
+  
+    public var ingredient = ["chicken","lemon","apple"]{
+        didSet {
+            DispatchQueue.main.async {
+               
+            }
+        }
+    }
     
-    private var ingredient = ["chicken","lemon","apple"]
-
     func clear(){
         self.ingredient = []
     }
@@ -29,23 +36,24 @@ class ingredientManager {
         return ingredient[index]
     }
     
-    func textAllIngredients(ingredients : [Ingredient]) -> String{
+    func textAllIngredients(ingredients : [String]) -> String{
         
         var allIngredients = ""
         
         for index in 0..<ingredients.count {
-            if index == (ingredients.count-1){
-                allIngredients = allIngredients+" \(ingredients[index].foodCategory ?? "")"
-            } else {
-                allIngredients = allIngredients+" \(ingredients[index].foodCategory ?? ""),"
-            }
+            allIngredients = allIngredients+" \(ingredients[index]),"
         }
-        
+        allIngredients.removeLast()
         return allIngredients
     }
     
-    func convertMinuteToHour(minute : Int) -> String{
-        return "1"
+    func returnIngredientForRequest() -> String {
+        var ingredients = ""
+        for ingredient in self.ingredient {
+            ingredients = ingredients+ingredient+"+"
+        }
+        ingredients.removeLast()
+        return ingredients
     }
     
 }

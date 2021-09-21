@@ -23,10 +23,7 @@ class RecipDetailsSection : Section {
         self.recipe = recipe
         
         
-        self.cellsVM.append(RecipDetailsCellViewModel(
-                                recipImage: recipe.image,
-                                yield: recipe.yield,
-                                totalTime: recipe.totalTime))
+        self.cellsVM.append(RecipDetailsCellViewModel(recipe: recipe))
         
         for index in 0..<recipe.ingredientLines.count {
             self.cellsVM.append(ingredientLineCellViewModel(ingredientLine: recipe.ingredientLines[index]))

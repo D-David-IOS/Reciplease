@@ -1,12 +1,16 @@
 
 
 import UIKit
+import WebKit
 
-class RecipListViewController: UIViewController {
+
+class TableViewController: UIViewController, WKUIDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ScrollableViewModel?
+    
+    var webView: WKWebView?
                 
     init(viewModel: ScrollableViewModel) {
         self.viewModel = viewModel
@@ -17,7 +21,8 @@ class RecipListViewController: UIViewController {
         super.init(coder: coder)
         
     }
- 
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
     }
     
@@ -28,8 +33,10 @@ class RecipListViewController: UIViewController {
     
     override func viewDidLoad() {
         
+       
+        
         super.viewDidLoad()
-        tableView.backgroundColor = .yellow
+        tableView.backgroundColor = #colorLiteral(red: 0.2160621881, green: 0.2001904547, blue: 0.196036458, alpha: 1)
         tableView.separatorColor = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -83,7 +90,7 @@ class RecipListViewController: UIViewController {
     
 }
 
-extension RecipListViewController: UITableViewDelegate, UITableViewDataSource {
+extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let vm = self.viewModel else {

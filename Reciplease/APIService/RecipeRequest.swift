@@ -19,7 +19,7 @@ class RecipeRequest {
     // Recipe : contains the Recipe with ingredients etc...
     func getRecipe(callback : @escaping (Bool, Recipes?) -> Void){
         do {
-            AF.request("https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=chicken+caramel&type=public", method: .get).response { response in
+            AF.request("https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public", method: .get).response { response in
                 debugPrint(response)
                 
                 guard let data = response.data else {

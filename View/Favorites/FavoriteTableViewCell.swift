@@ -1,13 +1,13 @@
 //
-//  RecipTableViewCell.swift
+//  FavoriteTableViewCell.swift
 //  Reciplease
 //
-//  Created by David-IOS on 11/09/2021.
+//  Created by David-IOS on 21/09/2021.
 //
 
 import UIKit
 
-class RecipTableViewCell: UITableViewCell {
+class FavoriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageBackground: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,22 +32,21 @@ class RecipTableViewCell: UITableViewCell {
     }
     
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
-        guard let tableCVM = cellViewModel as? RecipCellViewModel else {
+        guard let tableCVM = cellViewModel as? FavoriteCellViewModel else {
             return
         }
         self.smallImage.layer.borderWidth = 1
         self.smallImage.layer.cornerRadius = 2
         self.smallImage.layer.borderColor = UIColor.white.cgColor
-        self.titleLabel.text = tableCVM.recipe.label
-        self.ingredientsLabel.text = ingredientManager.shared.textAllIngredients(ingredients: tableCVM.recipe.ingredientLines)
+        self.titleLabel.text = tableCVM.favorite.title
+        self.ingredientsLabel.text = ingredientManager.shared.textAllIngredients(ingredients: tableCVM.favorite.ingredients)
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.recipe.image) { image in
+        RecipeRequest.shared.getImage(imageUrl: tableCVM.favorite.image!) { image in
             self.imageBackground.image = image
         }
         
-        self.yield.text = String(tableCVM.recipe.yield)+" "
-        self.totalTime.text = String(tableCVM.recipe.totalTime)+"m"
+        self.yield.text = String(tableCVM.favorite.yield)+" "
+        self.totalTime.text = String(tableCVM.favorite.totalTime)+"m"
         
     }
-    
 }

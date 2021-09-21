@@ -17,7 +17,7 @@ class RecipDetailsRoutingEntry : RoutingEntry {
     
     var viewController: Controller? {
         let viewModel = RecipDetailsViewModel(recipe: self.recipe)
-        return RecipListViewController(viewModel: viewModel)
+        return TableViewController(viewModel: viewModel)
     }
     
     var completionBlock: (() -> Void)?

@@ -46,12 +46,9 @@ struct Recipe: Decodable {
     let url: String
     let shareAs: String
     let yield: Int
-    let dietLabels, healthLabels: [String]
     let ingredientLines: [String]
     let ingredients: [Ingredient]
-    let calories, totalWeight: Double
     let totalTime: Int
-    let cuisineType, mealType, dishType: [String]?
 }
 
 // MARK: - Ingredient

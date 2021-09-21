@@ -11,7 +11,7 @@ class ListRecipSection : Section {
     var position: Int
     
     var title: String
-
+    
     var cellsVM: [CellViewModel]
     
     var listRecip : [Hit]
@@ -22,15 +22,19 @@ class ListRecipSection : Section {
         self.cellsVM = [CellViewModel]()
         self.listRecip = listRecip
         
-
-    for index in 0..<(listRecip.count) {
-        self.cellsVM.append(RecipCellViewModel(
-            recipe: listRecip[index].recipe,
-                                routingEntry: RecipDetailsRoutingEntry(recipe: listRecip[index].recipe)))
+        if self.listRecip.count == 0 {
+            self.cellsVM.append(NoResultFoundCellViewModel())
+        } else {
+            
+            
+            for index in 0..<(listRecip.count) {
+                self.cellsVM.append(RecipCellViewModel(
+                                        recipe: listRecip[index].recipe,
+                                        routingEntry: RecipDetailsRoutingEntry(recipe: listRecip[index].recipe)))
+            }
+            
         }
- 
+        
     }
-    
-
     
 }
