@@ -13,6 +13,10 @@ extension UIViewController: Controller {
     var presentedController: Controller? {
         return self.presentedViewController
     }
+    
+    var navController: NavController? {
+        return self.navigationController
+    }
         
     func present(controller: Controller, animated: Bool, completion: @escaping () -> ()) {
         guard let viewController = controller as? UIViewController else {
@@ -28,3 +32,4 @@ extension UIViewController: Controller {
     }
     
 }
+

@@ -43,7 +43,6 @@ class ingredientManager  {
         for index in 0..<ingredients.count {
             allIngredients = allIngredients+" \(ingredients[index]),"
         }
-        allIngredients.removeLast()
         return allIngredients
     }
     
@@ -52,7 +51,6 @@ class ingredientManager  {
         for ingredient in self.ingredient {
             ingredients = ingredients+ingredient+"+"
         }
-        ingredients.removeLast()
         return ingredients
     }
     

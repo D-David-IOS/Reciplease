@@ -8,6 +8,7 @@
 import Foundation
 
 class RecipListRoutingEntry : RoutingEntry {
+ 
     var viewController: Controller? {
         let viewModel = ListRecipViewModel()
         return TableViewController(viewModel: viewModel)
@@ -15,5 +16,8 @@ class RecipListRoutingEntry : RoutingEntry {
     
     var completionBlock: (() -> Void)?
     
+    var navigationStyle: NavigationStyle {
+        return .push
+    }
     
 }

@@ -10,7 +10,6 @@ import CoreData
 
 class FavoritesManager  {
    
-    
     static let shared = FavoritesManager()
   
     public var Favorites = [FavoriteRecipe]()

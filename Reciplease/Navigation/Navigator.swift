@@ -1,15 +1,27 @@
 //
 //  Navigator.swift
-//  Reciplease
+//  Weazer
 //
-//  Created by David-IOS on 11/09/2021.
+//  Created by Florian Basso on 14/04/2019.
+//  Copyright © 2019 Roaflin. All rights reserved.
 //
 
 import Foundation
 
 protocol Navigator {
-    var lastNavigationStyle: NavigationStyle? { get set }
+    var lastRoutingEntry: RoutingEntry? { get set }
     func visibleViewController() -> Controller?
     func visibleViewController(_ rootViewController: Controller?) -> Controller?
-    func route(navigationStyle: NavigationStyle, animated: Bool) -> Navigator
+    func route(routingEntry: RoutingEntry,
+               fromController: Controller,
+               animated: Bool) -> Navigator
+}
+
+
+@objc enum NavigationStyle: Int {
+    case push
+    case pop
+    case modal
+    case dismiss
+    case url
 }

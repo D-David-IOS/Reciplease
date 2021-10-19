@@ -10,7 +10,7 @@ import CoreData
 
 class FavoriteRecipe : NSManagedObject {
 }
-
+/*
 extension FavoriteRecipe {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<FavoriteRecipe> {
@@ -28,3 +28,4 @@ extension FavoriteRecipe {
 extension FavoriteRecipe : Identifiable {
 
 }
+*/

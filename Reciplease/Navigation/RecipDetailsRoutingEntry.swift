@@ -22,5 +22,8 @@ class RecipDetailsRoutingEntry : RoutingEntry {
     
     var completionBlock: (() -> Void)?
     
+    var navigationStyle: NavigationStyle {
+        return .push
+    }
     
 }

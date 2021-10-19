@@ -12,13 +12,13 @@ class Routing: NSObject, Navigator {
     
     // MARK: - Navigator
     
-    var lastNavigationStyle: NavigationStyle?
+    var lastRoutingEntry: RoutingEntry?
     
     func visibleViewController() -> Controller? {
-        guard let window = UIApplication.shared.delegate?.window as? UIWindow else {
+        guard let window = UIApplication.shared.delegate?.window  else {
             return nil
         }
-        return self.visibleViewController(window.rootViewController)
+        return self.visibleViewController(window!.rootViewController)
     }
     
     func visibleViewController(_ rootViewController: Controller?) -> Controller? {
@@ -38,10 +38,65 @@ class Routing: NSObject, Navigator {
         }
     }
     
-    func route(navigationStyle: NavigationStyle, animated: Bool = true) -> Navigator {
-        navigationStyle.navigate(animated: animated)
-        self.lastNavigationStyle = navigationStyle
+    func route(routingEntry: RoutingEntry,
+               fromController: Controller,
+               animated: Bool = true) -> Navigator {
         
+        let viewControllerToDisplay = routingEntry.viewController
+        
+        // Navigate on main thread to avoid crashes
+        DispatchQueue.main.async(execute: {() -> Void in
+            switch routingEntry.navigationStyle {
+            case .push:
+                
+                var fromNavigationController: UINavigationController? = fromController as? UINavigationController
+                
+                if let navigationController = fromController.navController as? UINavigationController {
+                    fromNavigationController = navigationController
+                }
+                if let aDisplay = viewControllerToDisplay {
+                    fromNavigationController?.pushViewController(aDisplay as! UIViewController, animated: animated)
+                }
+                
+                break
+                
+            case .pop:
+                fromController.navController?.popController(animated: animated)
+                break
+                
+            case .modal:
+                if let aDisplay = viewControllerToDisplay {
+                    fromController.present(controller: aDisplay,
+                                           animated: animated,
+                                           completion: {() -> Void in
+                                            routingEntry.completionBlock?()
+                                           })
+                }
+                
+                break
+                
+            case .url :
+                guard let route = routingEntry as? WebRoutingEntry else {
+                    return
+                }
+                UIApplication.shared.open(route.url)
+                
+                break
+                
+                
+                
+            case .dismiss:
+                fromController.dismissController(animated: animated,
+                                                 completion: {() -> Void in
+                                                    routingEntry.completionBlock?()
+                                                 })
+                break
+                
+            }
+            
+        })
+        
+        self.lastRoutingEntry = routingEntry
         return self
     }
 }

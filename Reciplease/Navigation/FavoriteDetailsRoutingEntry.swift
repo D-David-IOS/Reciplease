@@ -22,5 +22,7 @@ class FavoriteDetailsRoutingEntry : RoutingEntry {
     
     var completionBlock: (() -> Void)?
     
-    
+    var navigationStyle: NavigationStyle {
+        return .push
+    }
 }

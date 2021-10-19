@@ -25,5 +25,6 @@ class ListRecipViewModel : ScrollableViewModel {
             callback()
         }
     }
+    
   
 }

@@ -7,10 +7,8 @@
 
 import Foundation
 
-import Foundation
-
 @objc protocol RoutingEntry {
-    
+    var navigationStyle: NavigationStyle { get }
     var viewController: Controller? { get }
     var completionBlock: (() -> Void)? { get set }
 }
