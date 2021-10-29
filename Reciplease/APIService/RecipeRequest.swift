@@ -9,7 +9,44 @@ import Foundation
 import SwiftUI
 import Alamofire
 
-class RecipeRequest {
+protocol Requester {
+    func getRecipe(callback : @escaping (Bool, Recipes?) -> Void)
+}
+
+// TEST
+class MockRequester: Requester {
+    
+    var data: Data?
+    var response: HTTPURLResponse?
+    var error: Error?
+    
+    func getRecipe(callback: @escaping (Bool, Recipes?) -> Void) {
+        if error != nil {
+            callback(false, nil)
+        }
+    }
+}
+
+class ListRecipeViewModelTests {
+    
+    func test_loadData_whenThereIsAnError() {
+        // Given
+        let vm = ListRecipViewModel()
+        let mockRequester = MockRequester()
+        mockRequester.error = NSError()
+        vm.requester = mockRequester
+        
+        // When
+        vm.loadData {
+            // Then
+            
+        }
+    }
+    
+}
+
+// PRODUCTION
+class RecipeRequest: Requester {
     
     static let shared = RecipeRequest()
     
@@ -20,23 +57,25 @@ class RecipeRequest {
     func getRecipe(callback : @escaping (Bool, Recipes?) -> Void){
         do {
             AF.request("https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public", method: .get).response { response in
-                debugPrint(response)
-                
-                guard let data = response.data else {
-                    callback(false,nil)
-                    return
-                }
-                
-                do {
-                    // here we have data, so we try to decode into a recipe
-                    let recipe = try JSONDecoder().decode(Recipes.self, from: data)
-                    callback(true, recipe)
-                } catch let jsonErr {
-                    // if decode failed, return an error and callback(false,nil)
-                    print("Erreur de décodage", jsonErr)
-                    callback(false,nil)
-                }
+                self.handleResponse(response: response, callback: callback)
             }
+        }
+    }
+    
+    func handleResponse(response: AFDataResponse<Data?>, callback : (Bool, Recipes?)  -> Void) {
+        guard let data = response.data else {
+            callback(false,nil)
+            return
+        }
+        
+        do {
+            // here we have data, so we try to decode into a recipe
+            let recipe = try JSONDecoder().decode(Recipes.self, from: data)
+            callback(true, recipe)
+        } catch let jsonErr {
+            // if decode failed, return an error and callback(false,nil)
+            print("Erreur de décodage", jsonErr)
+            callback(false,nil)
         }
     }
     

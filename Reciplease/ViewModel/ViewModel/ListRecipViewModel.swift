@@ -10,10 +10,11 @@ import Foundation
 class ListRecipViewModel : ScrollableViewModel {
     
     var sections = [Section]()
+    var requester: Requester!
     
     func loadData(callback: @escaping () -> ()) {
         
-        RecipeRequest.shared.getRecipe { success, recipe in
+        self.requester.getRecipe { success, recipe in
             
             guard recipe != nil else {
                 self.sections.append(ListRecipSection(listRecip: []))
