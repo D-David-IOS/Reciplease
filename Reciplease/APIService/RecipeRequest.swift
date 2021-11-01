@@ -9,44 +9,10 @@ import Foundation
 import SwiftUI
 import Alamofire
 
-protocol Requester {
-    func getRecipe(callback : @escaping (Bool, Recipes?) -> Void)
-}
 
-// TEST
-class MockRequester: Requester {
-    
-    var data: Data?
-    var response: HTTPURLResponse?
-    var error: Error?
-    
-    func getRecipe(callback: @escaping (Bool, Recipes?) -> Void) {
-        if error != nil {
-            callback(false, nil)
-        }
-    }
-}
-
-class ListRecipeViewModelTests {
-    
-    func test_loadData_whenThereIsAnError() {
-        // Given
-        let vm = ListRecipViewModel()
-        let mockRequester = MockRequester()
-        mockRequester.error = NSError()
-        vm.requester = mockRequester
-        
-        // When
-        vm.loadData {
-            // Then
-            
-        }
-    }
-    
-}
 
 // PRODUCTION
-class RecipeRequest: Requester {
+class RecipeRequest {
     
     static let shared = RecipeRequest()
     
