@@ -9,9 +9,6 @@ import Foundation
 import SwiftUI
 import Alamofire
 
-
-
-// PRODUCTION
 class RecipeRequest {
     
     static let shared = RecipeRequest()
@@ -23,25 +20,23 @@ class RecipeRequest {
     func getRecipe(callback : @escaping (Bool, Recipes?) -> Void){
         do {
             AF.request("https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public", method: .get).response { response in
-                self.handleResponse(response: response, callback: callback)
+                debugPrint(response)
+                
+                guard let data = response.data else {
+                    callback(false,nil)
+                    return
+                }
+                
+                do {
+                    // here we have data, so we try to decode into a recipe
+                    let recipe = try JSONDecoder().decode(Recipes.self, from: data)
+                    callback(true, recipe)
+                } catch let jsonErr {
+                    // if decode failed, return an error and callback(false,nil)
+                    print("Erreur de décodage", jsonErr)
+                    callback(false,nil)
+                }
             }
-        }
-    }
-    
-    func handleResponse(response: AFDataResponse<Data?>, callback : (Bool, Recipes?)  -> Void) {
-        guard let data = response.data else {
-            callback(false,nil)
-            return
-        }
-        
-        do {
-            // here we have data, so we try to decode into a recipe
-            let recipe = try JSONDecoder().decode(Recipes.self, from: data)
-            callback(true, recipe)
-        } catch let jsonErr {
-            // if decode failed, return an error and callback(false,nil)
-            print("Erreur de décodage", jsonErr)
-            callback(false,nil)
         }
     }
     
@@ -66,12 +61,5 @@ class RecipeRequest {
         }
         
     }
-    
-    // create a request for the api "edamam"
-    private func createRecipRequest() -> URLRequest {
-        var request = URLRequest(url: URL(string : "https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=lemon&type=public")!)
-        request.httpMethod = "GET"
-        return request
-    }
-    
+
 }
