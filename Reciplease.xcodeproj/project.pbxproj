@@ -85,6 +85,10 @@
 		3D9860B426EE79740017769D /* BigButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9860B226EE79740017769D /* BigButtonTableViewCell.swift */; };
 		3D9860B526EE79740017769D /* BigButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9860B326EE79740017769D /* BigButtonTableViewCell.xib */; };
 		3D9860B726EE7A640017769D /* BigbuttonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9860B626EE7A640017769D /* BigbuttonCellViewModel.swift */; };
+		3DB8BC84273089BB008D6E65 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC83273089BB008D6E65 /* Mock.swift */; };
+		3DB8BC86273089EE008D6E65 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC85273089EE008D6E65 /* Mocker.swift */; };
+		3DB8BC8827308B21008D6E65 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */; };
+		3DB8BC8A27308B89008D6E65 /* XCTest+Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */; };
 		3DEAD7AE26F39222004AF385 /* IngredientSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEAD7AC26F39222004AF385 /* IngredientSearchTableViewCell.swift */; };
 		3DEAD7AF26F39222004AF385 /* IngredientSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEAD7AD26F39222004AF385 /* IngredientSearchTableViewCell.xib */; };
 		3DEAD7B126F39363004AF385 /* IngredientSearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEAD7B026F39363004AF385 /* IngredientSearchCellViewModel.swift */; };
@@ -193,6 +197,10 @@
 		3D9860B226EE79740017769D /* BigButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonTableViewCell.swift; sourceTree = "<group>"; };
 		3D9860B326EE79740017769D /* BigButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigButtonTableViewCell.xib; sourceTree = "<group>"; };
 		3D9860B626EE7A640017769D /* BigbuttonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigbuttonCellViewModel.swift; sourceTree = "<group>"; };
+		3DB8BC83273089BB008D6E65 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		3DB8BC85273089EE008D6E65 /* Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
+		3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Mocker.swift"; sourceTree = "<group>"; };
 		3DEAD7AC26F39222004AF385 /* IngredientSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3DEAD7AD26F39222004AF385 /* IngredientSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientSearchTableViewCell.xib; sourceTree = "<group>"; };
 		3DEAD7B026F39363004AF385 /* IngredientSearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchCellViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +297,10 @@
 			children = (
 				3D522B5426BD7A1B00FABC8B /* RecipleaseTests.swift */,
 				3D522B5626BD7A1B00FABC8B /* Info.plist */,
+				3DB8BC83273089BB008D6E65 /* Mock.swift */,
+				3DB8BC85273089EE008D6E65 /* Mocker.swift */,
+				3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */,
+				3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -841,7 +853,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB8BC8827308B21008D6E65 /* MockingURLProtocol.swift in Sources */,
 				3D522B5526BD7A1B00FABC8B /* RecipleaseTests.swift in Sources */,
+				3DB8BC8A27308B89008D6E65 /* XCTest+Mocker.swift in Sources */,
+				3DB8BC86273089EE008D6E65 /* Mocker.swift in Sources */,
+				3DB8BC84273089BB008D6E65 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
