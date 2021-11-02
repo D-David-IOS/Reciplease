@@ -14,7 +14,7 @@ class FavoriteDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var smallImage: UIView!
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
-    
+    let requester = RecipeRequest()
 
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? FavoriteDetailsCellViewModel else {
@@ -27,7 +27,7 @@ class FavoriteDetailsTableViewCell: UITableViewCell {
         self.yieldLabel.text = tableCVM.favorite.yield!+" "
         self.totalTimeLabel.text = tableCVM.favorite.totalTime!+" m"
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.favorite.image!) { image in
+        requester.getImage(imageUrl: tableCVM.favorite.image!) { image in
             self.recipImage.image = image
         }
         

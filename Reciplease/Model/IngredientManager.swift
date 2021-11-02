@@ -12,13 +12,7 @@ class ingredientManager  {
     
     static let shared = ingredientManager()
   
-    public var ingredient = ["chicken","lemon","apple"]{
-        didSet {
-            DispatchQueue.main.async {
-               
-            }
-        }
-    }
+    public var ingredient = ["chicken","lemon","apple"]
     
     func clear(){
         self.ingredient = []

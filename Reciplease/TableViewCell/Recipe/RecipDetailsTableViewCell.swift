@@ -12,6 +12,8 @@ class RecipDetailsTableViewCell: UITableViewCell {
 
     var recipe : Recipe?
     
+    let requester = RecipeRequest()
+    
     @IBOutlet weak var recipImage: UIImageView!
     @IBOutlet weak var smallImage: UIView!
     @IBOutlet weak var yieldLabel: UILabel!
@@ -30,7 +32,7 @@ class RecipDetailsTableViewCell: UITableViewCell {
         self.yieldLabel.text = String(tableCVM.recipe.yield)+" "
         self.totalTimeLabel.text = String(tableCVM.recipe.totalTime)+" m"
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.recipe.image) { image in
+        requester.getImage(imageUrl: tableCVM.recipe.image) { image in
             self.recipImage.image = image
         }
         

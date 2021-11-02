@@ -15,6 +15,7 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var yield: UILabel!
     @IBOutlet weak var totalTime: UILabel!
     @IBOutlet weak var smallImage: UIView!
+    let requester = RecipeRequest()
     
     override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
        
@@ -38,7 +39,7 @@ class FavoriteTableViewCell: UITableViewCell {
         self.titleLabel.text = tableCVM.favorite.title
         self.ingredientsLabel.text = ingredientManager.shared.textAllIngredients(ingredients: tableCVM.favorite.ingredients!)
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.favorite.image!) { image in
+        requester.getImage(imageUrl: tableCVM.favorite.image!) { image in
             self.imageBackground.image = image
         }
         

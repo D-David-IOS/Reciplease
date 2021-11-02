@@ -16,6 +16,8 @@ class RecipTableViewCell: UITableViewCell {
     @IBOutlet weak var totalTime: UILabel!
     @IBOutlet weak var smallImage: UIView!
     
+    let requester = RecipeRequest()
+    
     override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
        
         guard let routingEntry = cellViewModel.routingEntry, let navController = controller.navigationController else {
@@ -38,7 +40,7 @@ class RecipTableViewCell: UITableViewCell {
         self.titleLabel.text = tableCVM.recipe.label
         self.ingredientsLabel.text = ingredientManager.shared.textAllIngredients(ingredients: tableCVM.recipe.ingredientLines)
         
-        RecipeRequest.shared.getImage(imageUrl: tableCVM.recipe.image) { image in
+        requester.getImage(imageUrl: tableCVM.recipe.image) { image in
             self.imageBackground.image = image
         }
         

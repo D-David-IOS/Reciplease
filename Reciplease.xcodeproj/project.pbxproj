@@ -89,6 +89,10 @@
 		3DB8BC86273089EE008D6E65 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC85273089EE008D6E65 /* Mocker.swift */; };
 		3DB8BC8827308B21008D6E65 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */; };
 		3DB8BC8A27308B89008D6E65 /* XCTest+Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */; };
+		3DB8BC8C27319FB4008D6E65 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8B27319FB4008D6E65 /* FakeData.swift */; };
+		3DB8BC8E2731A1BE008D6E65 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8D2731A1BE008D6E65 /* Recipe.json */; };
+		3DB8BC902731C717008D6E65 /* translate.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8BC8F2731C717008D6E65 /* translate.json */; };
+		3DB8BC942731E35D008D6E65 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8BC932731E35D008D6E65 /* CoreDataTests.swift */; };
 		3DEAD7AE26F39222004AF385 /* IngredientSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEAD7AC26F39222004AF385 /* IngredientSearchTableViewCell.swift */; };
 		3DEAD7AF26F39222004AF385 /* IngredientSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEAD7AD26F39222004AF385 /* IngredientSearchTableViewCell.xib */; };
 		3DEAD7B126F39363004AF385 /* IngredientSearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEAD7B026F39363004AF385 /* IngredientSearchCellViewModel.swift */; };
@@ -201,6 +205,10 @@
 		3DB8BC85273089EE008D6E65 /* Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
 		3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
 		3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Mocker.swift"; sourceTree = "<group>"; };
+		3DB8BC8B27319FB4008D6E65 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		3DB8BC8D2731A1BE008D6E65 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
+		3DB8BC8F2731C717008D6E65 /* translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = translate.json; sourceTree = "<group>"; };
+		3DB8BC932731E35D008D6E65 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3DEAD7AC26F39222004AF385 /* IngredientSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3DEAD7AD26F39222004AF385 /* IngredientSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientSearchTableViewCell.xib; sourceTree = "<group>"; };
 		3DEAD7B026F39363004AF385 /* IngredientSearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchCellViewModel.swift; sourceTree = "<group>"; };
@@ -295,12 +303,9 @@
 		3D522B5326BD7A1B00FABC8B /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D522B5426BD7A1B00FABC8B /* RecipleaseTests.swift */,
+				3DB8BC922731E336008D6E65 /* CoreData */,
+				3DB8BC912731E307008D6E65 /* TestsRequest */,
 				3D522B5626BD7A1B00FABC8B /* Info.plist */,
-				3DB8BC83273089BB008D6E65 /* Mock.swift */,
-				3DB8BC85273089EE008D6E65 /* Mocker.swift */,
-				3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */,
-				3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -510,6 +515,29 @@
 			path = APIService;
 			sourceTree = "<group>";
 		};
+		3DB8BC912731E307008D6E65 /* TestsRequest */ = {
+			isa = PBXGroup;
+			children = (
+				3DB8BC8B27319FB4008D6E65 /* FakeData.swift */,
+				3D522B5426BD7A1B00FABC8B /* RecipleaseTests.swift */,
+				3DB8BC83273089BB008D6E65 /* Mock.swift */,
+				3DB8BC85273089EE008D6E65 /* Mocker.swift */,
+				3DB8BC8727308B21008D6E65 /* MockingURLProtocol.swift */,
+				3DB8BC8927308B89008D6E65 /* XCTest+Mocker.swift */,
+				3DB8BC8D2731A1BE008D6E65 /* Recipe.json */,
+				3DB8BC8F2731C717008D6E65 /* translate.json */,
+			);
+			path = TestsRequest;
+			sourceTree = "<group>";
+		};
+		3DB8BC922731E336008D6E65 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DB8BC932731E35D008D6E65 /* CoreDataTests.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		6D9E2FF3EF99EB9D69DF8B9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +692,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB8BC902731C717008D6E65 /* translate.json in Resources */,
+				3DB8BC8E2731A1BE008D6E65 /* Recipe.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,6 +888,8 @@
 				3DB8BC8A27308B89008D6E65 /* XCTest+Mocker.swift in Sources */,
 				3DB8BC86273089EE008D6E65 /* Mocker.swift in Sources */,
 				3DB8BC84273089BB008D6E65 /* Mock.swift in Sources */,
+				3DB8BC942731E35D008D6E65 /* CoreDataTests.swift in Sources */,
+				3DB8BC8C27319FB4008D6E65 /* FakeData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

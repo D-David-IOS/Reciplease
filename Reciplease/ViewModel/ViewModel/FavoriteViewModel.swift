@@ -21,7 +21,7 @@ class FavoriteRecipViewModel : ScrollableViewModel {
             return
         }
         
-        self.sections.append(ListFavoriteSection(listRecip: favoriteRecipe))
+        self.sections = [ListFavoriteSection(listRecip: favoriteRecipe)]
         
 
         callback()

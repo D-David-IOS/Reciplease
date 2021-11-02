@@ -24,7 +24,16 @@ class TableViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
+        guard ((self.viewModel as? FavoriteRecipViewModel) == nil) else {
+            self.viewModel?.loadData {
+                self.registerCells()
+                self.tableView.reloadData()
+            }
+            super.viewWillAppear(animated)
+            navigationItem.title = "Favorite"
+            return
+        }
+        super.viewWillAppear(animated)
         navigationItem.title = "Reciplease"
        }
     
