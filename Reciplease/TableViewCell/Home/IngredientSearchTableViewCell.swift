@@ -7,20 +7,16 @@
 
 import UIKit
 
+// this class represent one ingredient line in home
 class IngredientSearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var IngredientLabel: UILabel!
     
-    override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
-        
-    }
-    
+    //configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? ingredientLineCellViewModel else {
             return
         }
-       
         self.IngredientLabel.text = "      - "+tableCVM.ingredientLine
-        
     }
 }

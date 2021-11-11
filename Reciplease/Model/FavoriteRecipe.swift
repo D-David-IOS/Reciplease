@@ -8,24 +8,7 @@
 import Foundation
 import CoreData
 
+// we don't need to implement this class, CoreData do it
 class FavoriteRecipe : NSManagedObject {
 }
-/*
-extension FavoriteRecipe {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<FavoriteRecipe> {
-        return NSFetchRequest<FavoriteRecipe>(entityName: "FavoriteRecipe")
-    }
-
-    @NSManaged public var image: String?
-    @NSManaged public var ingredients: [String]
-    @NSManaged public var title: String
-    @NSManaged public var totalTime: String
-    @NSManaged public var yield: String
-
-}
-
-extension FavoriteRecipe : Identifiable {
-
-}
-*/

@@ -9,6 +9,7 @@ import UIKit
 
 class SearchRecipeTableViewCell: UITableViewCell {
 
+    // action when the user press the cell
     override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
         
         guard let routingEntry = cellViewModel.routingEntry, let navController = controller.navigationController else {

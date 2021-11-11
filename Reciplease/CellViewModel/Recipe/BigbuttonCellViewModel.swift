@@ -23,6 +23,5 @@ class BigButtonCellViewModel : TableCellViewModel {
     init(routingEntry : RoutingEntry){
         self.routingEntry = routingEntry
     }
-  
-    
+
 }

@@ -7,8 +7,10 @@
 
 import Foundation
 
+// This Routing push a new controller : TableViewController with the viewModel FavoriteDetailsViewModel
 class FavoriteDetailsRoutingEntry : RoutingEntry {
     
+    // Instance with a FavoriteRecipe
     var favorite : FavoriteRecipe
     
     init(favorite : FavoriteRecipe){

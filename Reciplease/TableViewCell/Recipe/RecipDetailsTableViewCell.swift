@@ -8,8 +8,10 @@
 import UIKit
 import CoreData
 
+// this class represent the top ine the Recipe Details Page
 class RecipDetailsTableViewCell: UITableViewCell {
 
+    // the recipe with all informations
     var recipe : Recipe?
     
     let requester = RecipeRequest()
@@ -20,7 +22,7 @@ class RecipDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
     
-
+    // configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? RecipDetailsCellViewModel else {
             return
@@ -38,12 +40,14 @@ class RecipDetailsTableViewCell: UITableViewCell {
         
     }
     
+    // change the star color to yellow and add a new favorite recipe in Coredata
     @IBAction func addFavorite(_ sender: Any) {
         starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         starButton.isEnabled = false
         saveRecip(recipe: recipe!)
     }
     
+    // this function can be used for save a Recipe in CoreData
     private func saveRecip(recipe : Recipe){
         let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
         favoriteRecipe.url = recipe.url

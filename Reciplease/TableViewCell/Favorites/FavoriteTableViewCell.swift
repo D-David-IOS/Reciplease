@@ -7,6 +7,7 @@
 
 import UIKit
 
+// this class reprensent a Favorite Cell
 class FavoriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageBackground: UIImageView!
@@ -17,6 +18,7 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var smallImage: UIView!
     let requester = RecipeRequest()
     
+    // the action when the cell is pressed, we go in the favorite details Page
     override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
        
         guard let routingEntry = cellViewModel.routingEntry, let navController = controller.navigationController else {
@@ -29,6 +31,7 @@ class FavoriteTableViewCell: UITableViewCell {
                    fromController: navController)
     }
     
+    // configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? FavoriteCellViewModel else {
             return

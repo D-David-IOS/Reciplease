@@ -7,6 +7,7 @@
 
 import Foundation
 
+// all ViewModel has a Section Array and a function LoadData called in the Controller
 protocol ScrollableViewModel {
         
     var sections: [Section] { get set }

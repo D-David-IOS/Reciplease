@@ -7,14 +7,12 @@
 
 import UIKit
 
+// this cell represent one ingredients line, we can add this cell as many times we need
 class IngredientLineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ingredientLine: UILabel!
     
-    override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
-        
-    }
-    
+   // configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? ingredientLineCellViewModel else {
             return

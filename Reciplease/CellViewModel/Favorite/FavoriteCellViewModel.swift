@@ -9,11 +9,7 @@ import Foundation
 
 class FavoriteCellViewModel : TableEditedCellViewModel {
     var canEdit = true
-    
-    func completionEdit() {
-        print("blabla")
-    }
-    
+   
     var height: Float = 115
     
     var estimatedHeight: Float = 115
@@ -29,7 +25,6 @@ class FavoriteCellViewModel : TableEditedCellViewModel {
     var favorite : FavoriteRecipe
     
     init(favoriteRecipe : FavoriteRecipe, routingEntry: RoutingEntry) {
-        
         self.favorite = favoriteRecipe
         self.routingEntry = routingEntry
     }

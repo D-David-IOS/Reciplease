@@ -20,7 +20,4 @@ class YourIngredientsCellViewModel : TableCellViewModel {
 
     var routingEntry: RoutingEntry?
 
-    
-  
-    
 }

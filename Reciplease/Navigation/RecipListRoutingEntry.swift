@@ -7,6 +7,7 @@
 
 import Foundation
 
+// This Routing push a new controller : TableViewController with the viewModel ListRecipViewModel
 class RecipListRoutingEntry : RoutingEntry {
  
     var viewController: Controller? {

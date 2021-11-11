@@ -47,6 +47,7 @@ class Routing: NSObject, Navigator {
         // Navigate on main thread to avoid crashes
         DispatchQueue.main.async(execute: {() -> Void in
             switch routingEntry.navigationStyle {
+                // push a new controller
             case .push:
                 
                 var fromNavigationController: UINavigationController? = fromController as? UINavigationController
@@ -60,10 +61,7 @@ class Routing: NSObject, Navigator {
                 
                 break
                 
-            case .pop:
-                fromController.navController?.popController(animated: animated)
-                break
-                
+                // we can use modal for show an AlertViewController
             case .modal:
                 if let aDisplay = viewControllerToDisplay {
                     fromController.present(controller: aDisplay,
@@ -74,7 +72,7 @@ class Routing: NSObject, Navigator {
                 }
                 
                 break
-                
+                // we can use url for open a link in safari, or open an another app like twitter
             case .url :
                 guard let route = routingEntry as? WebRoutingEntry else {
                     return
@@ -82,18 +80,7 @@ class Routing: NSObject, Navigator {
                 UIApplication.shared.open(route.url)
                 
                 break
-                
-                
-                
-            case .dismiss:
-                fromController.dismissController(animated: animated,
-                                                 completion: {() -> Void in
-                                                    routingEntry.completionBlock?()
-                                                 })
-                break
-                
             }
-            
         })
         
         self.lastRoutingEntry = routingEntry

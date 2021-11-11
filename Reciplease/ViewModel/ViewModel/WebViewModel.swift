@@ -9,6 +9,7 @@ import Foundation
 
 class WebViewModel {
     
+    // the url to open in a WebView
     var url : URL
     
     init(url : URL){

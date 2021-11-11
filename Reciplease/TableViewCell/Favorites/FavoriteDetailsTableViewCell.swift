@@ -7,6 +7,7 @@
 
 import UIKit
 
+// this class represent the top in a Favorite Details page
 class FavoriteDetailsTableViewCell: UITableViewCell {
     var favorite : FavoriteRecipe?
     
@@ -16,6 +17,7 @@ class FavoriteDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var totalTimeLabel: UILabel!
     let requester = RecipeRequest()
 
+    // Configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? FavoriteDetailsCellViewModel else {
             return

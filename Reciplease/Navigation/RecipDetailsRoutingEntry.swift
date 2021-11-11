@@ -7,8 +7,10 @@
 
 import Foundation
 
+// This Routing push a new controller : TableViewController with the viewModel RecipDetailsViewModel
 class RecipDetailsRoutingEntry : RoutingEntry {
     
+    // instance with a Recipe
     var recipe : Recipe
     
     init(recipe : Recipe){

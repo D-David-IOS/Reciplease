@@ -9,6 +9,7 @@ import Foundation
 
 class RecipDetailsViewModel : ScrollableViewModel {
     
+    // all Sections
     var sections = [Section]()
     
     let recipe : Recipe
@@ -17,11 +18,9 @@ class RecipDetailsViewModel : ScrollableViewModel {
         self.recipe = recipe
     }
     
+    // load the data, called in the Controller
     func loadData(callback: @escaping () -> ()) {
-        
         self.sections.append(RecipDetailsSection(recipe: recipe))
             callback()
-        
     }
-  
 }

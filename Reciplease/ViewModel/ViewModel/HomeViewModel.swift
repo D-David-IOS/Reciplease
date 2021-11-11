@@ -9,8 +9,10 @@ import Foundation
 
 class HomeViewModel : ScrollableViewModel {
     
+    // all sections
     var sections = [Section]()
     
+    // load the data, called in the Controller
     func loadData(callback: @escaping () -> ()) {
         self.sections.append(HomeSection())
         callback()

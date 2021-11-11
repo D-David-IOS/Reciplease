@@ -9,6 +9,7 @@ import Foundation
 
 class FavoriteDetailsViewModel : ScrollableViewModel {
     
+    // all sections
     var sections = [Section]()
     
     let favorite : FavoriteRecipe
@@ -17,6 +18,7 @@ class FavoriteDetailsViewModel : ScrollableViewModel {
         self.favorite = favorite
     }
     
+    // Load the data, called in the controller
     func loadData(callback: @escaping () -> ()) {
         self.sections.append(FavoriteDetailsSection(favorite: self.favorite))
             callback()

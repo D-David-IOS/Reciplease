@@ -1,9 +1,8 @@
 //
-//  Navigator.swift
-//  Weazer
+//  UIViewController+Controller.swift
+//  Reciplease
 //
-//  Created by Florian Basso on 14/04/2019.
-//  Copyright © 2019 Roaflin. All rights reserved.
+//  Created by David-IOS on 11/09/2021.
 //
 
 import Foundation
@@ -20,8 +19,6 @@ protocol Navigator {
 
 @objc enum NavigationStyle: Int {
     case push
-    case pop
     case modal
-    case dismiss
     case url
 }

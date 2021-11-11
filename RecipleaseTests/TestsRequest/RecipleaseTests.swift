@@ -13,6 +13,7 @@ class RecipleaseTests: XCTestCase {
     
     let fakeData = FakeData()
     let url = URL(string: "https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public")!
+    let urlLiteral =  "https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public"
     
     func testGoodStatusGoodDataSoGoodCallback() {
             let FakeRequest = RecipeRequest()
@@ -25,7 +26,7 @@ class RecipleaseTests: XCTestCase {
         let mock = Mock(url : url, dataType: .json, statusCode: 200, data: [.get: fakeData.correctData])
             mock.register()
 
-        FakeRequest.getRecipe() { success, recipe in
+        FakeRequest.getRecipe(url : urlLiteral) { success, recipe in
             
             XCTAssertNotNil(recipe)
             XCTAssertEqual(recipe?.hits.count,20)
@@ -49,7 +50,7 @@ class RecipleaseTests: XCTestCase {
         let mock = Mock(url : url, dataType: .json, statusCode: 500, data: [.get: fakeData.correctData])
             mock.register()
 
-        FakeRequest.getRecipe() { success, recipe in
+        FakeRequest.getRecipe(url : urlLiteral) { success, recipe in
             
                     XCTAssertNil(recipe)
                     XCTAssertFalse(success)
@@ -67,13 +68,11 @@ class RecipleaseTests: XCTestCase {
             FakeRequest.sessionManager = sessionManager
             let requestExpectation = expectation(description: "Request should finish")
         
-            let url = URL(string: "https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public")!
-
         let mock = Mock(url : url, dataType: .json, statusCode: 200, data: [.get: fakeData.incorrectData])
             mock.register()
 
         
-        FakeRequest.getRecipe() { success, recipe in
+        FakeRequest.getRecipe(url : urlLiteral) { success, recipe in
             
                     XCTAssertNil(recipe)
                     XCTAssertFalse(success)

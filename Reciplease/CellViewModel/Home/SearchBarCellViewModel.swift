@@ -20,7 +20,4 @@ class SearchBarCellViewModel : TableCellViewModel {
 
     var routingEntry: RoutingEntry?
 
-   
-  
-    
 }

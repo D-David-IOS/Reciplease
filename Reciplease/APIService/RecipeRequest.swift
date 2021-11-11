@@ -11,6 +11,7 @@ import Alamofire
 
 class RecipeRequest {
     
+    // we create a real Alamofire session for the app, and a mock in the tests
     var sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 10
@@ -19,12 +20,12 @@ class RecipeRequest {
     }()
     
     
-    // This function return a callback to the contoller with 2 parameters
-    // Bool : will be true if succes, false if an error is present or incorrect data
+    // This function return a callback to the ViewModel with 2 parameters
+    // Bool : will be true if success, false if an error is present or incorrect data
     // Recipe : contains the Recipe with ingredients etc...
-    func getRecipe(callback : @escaping (Bool, Recipes?) -> Void){
+    func getRecipe(url : String, callback : @escaping (Bool, Recipes?) -> Void){
         do {
-            sessionManager.request("https://api.edamam.com/api/recipes/v2?app_key=0dd8b13b990839412c655385191ecebc&app_id=11877b93&q=\(ingredientManager.shared.returnIngredientForRequest())&type=public", method: .get).responseDecodable(of: Recipes.self) { response in
+            sessionManager.request(url, method: .get).responseDecodable(of: Recipes.self) { response in
                 
                 guard let data = response.data,response.response?.statusCode == 200 else {
                     callback(false,nil)
@@ -44,7 +45,7 @@ class RecipeRequest {
         }
     }
     
-    // This function return a callback to the contoller with 1 parameter
+    // This function return a callback to the ViewModel with 1 parameter
     // Data : contains the image data , nil if error
     func getImage(imageUrl : String, callback : @escaping (UIImage) -> Void ){
         do{

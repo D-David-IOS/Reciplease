@@ -18,6 +18,7 @@ class RecipTableViewCell: UITableViewCell {
     
     let requester = RecipeRequest()
     
+    // the action when the user press the cell, we go to Recipe Details Page
     override func cellPressed(cellViewModel: CellViewModel, from controller: UIViewController) {
        
         guard let routingEntry = cellViewModel.routingEntry, let navController = controller.navigationController else {
@@ -30,6 +31,7 @@ class RecipTableViewCell: UITableViewCell {
                    fromController: navController)
     }
     
+    // configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? RecipCellViewModel else {
             return

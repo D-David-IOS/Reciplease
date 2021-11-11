@@ -8,5 +8,6 @@
 import Foundation
 
 protocol Section {
+    // a Section contain an CellViewModelArray
     var cellsVM: [CellViewModel] { get set }
 }
