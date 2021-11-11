@@ -33,9 +33,9 @@ class TableViewController: UIViewController {
         guard ((self.viewModel as? FavoriteRecipViewModel) == nil) else {
             
             // load the data and register cells
-            self.viewModel?.loadData {
-                self.registerCells()
-                self.tableView.reloadData()
+            self.viewModel?.loadData { [weak self] in
+                self?.registerCells()
+                self?.tableView.reloadData()
             }
             super.viewWillAppear(animated)
             navigationItem.title = "Favorite"
@@ -54,9 +54,9 @@ class TableViewController: UIViewController {
         tableView.dataSource = self
         guard ((self.viewModel as? FavoriteRecipViewModel) != nil) else {
             // load the data and register cells
-            self.viewModel?.loadData {
-                self.registerCells()
-                self.tableView.reloadData()
+            self.viewModel?.loadData { [weak self] in
+                self?.registerCells()
+                self?.tableView.reloadData()
             }
             return
         }
@@ -192,6 +192,12 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
             // remove the cell in the TableView
             self.viewModel?.remove(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            if self.viewModel?.sections[0].cellsVM.count == 0 {
+                self.viewModel?.loadData{ [weak self] in
+                    self?.registerCells()
+                    self?.tableView.reloadData()
+                }
+            }
         }
         
     }
