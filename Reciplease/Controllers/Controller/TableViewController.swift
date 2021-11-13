@@ -15,7 +15,7 @@ class TableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // the viewModel, contains all informations about the current page
-    var viewModel: ScrollableViewModel?
+    var viewModel: ScrollableViewModel
     
     init(viewModel: ScrollableViewModel) {
         self.viewModel = viewModel
@@ -23,7 +23,7 @@ class TableViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        return nil
     }
     
     // in the ViewWillAppear we registers the cells and reloadData
@@ -33,7 +33,7 @@ class TableViewController: UIViewController {
         guard ((self.viewModel as? FavoriteRecipViewModel) == nil) else {
             
             // load the data and register cells
-            self.viewModel?.loadData { [weak self] in
+            self.viewModel.loadData { [weak self] in
                 self?.registerCells()
                 self?.tableView.reloadData()
             }
@@ -54,7 +54,7 @@ class TableViewController: UIViewController {
         tableView.dataSource = self
         guard ((self.viewModel as? FavoriteRecipViewModel) != nil) else {
             // load the data and register cells
-            self.viewModel?.loadData { [weak self] in
+            self.viewModel.loadData { [weak self] in
                 self?.registerCells()
                 self?.tableView.reloadData()
             }
@@ -63,7 +63,7 @@ class TableViewController: UIViewController {
     }
 
     public func registerCells() {
-        guard let sections = self.viewModel?.sections else { return }
+        let sections = self.viewModel.sections
         
         for i in 0..<sections.count {
             let section = sections[i]
@@ -99,25 +99,17 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
     // the number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let vm = self.viewModel else {
-            return 0
-        }
-        return vm.numberOfSections()
+        return self.viewModel.numberOfSections()
     }
     
     // the numbers of items in the section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let vm = self.viewModel else {
-            return 0
-        }
-        return vm.numberOfItems(in: section)
+        return self.viewModel.numberOfItems(in: section)
     }
     
     // the cell at the IndexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cellVM = self.viewModel?.item(at: indexPath) else {
-            return UITableViewCell()
-        }
+        let cellVM = self.viewModel.item(at: indexPath)
         
         let reuseIdentifier = cellVM.reuseIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier,
@@ -145,9 +137,8 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Configure the cell, with the informations present in the CellViewModel
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cellVM = self.viewModel?.item(at: indexPath) else {
-            return
-        }
+        let cellVM = self.viewModel.item(at: indexPath)
+        
         cell.configure(cellViewModel: cellVM,
                        from: self)
     }
@@ -155,9 +146,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     // add an action when user tap one the cell
     // the action is definited in the cellViewModel with a Routing Entry
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cellVM = self.viewModel?.item(at: indexPath) else {
-            return
-        }
+        let cellVM = self.viewModel.item(at: indexPath)
                         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.reuseIdentifier)
         cell?.cellPressed(cellViewModel: cellVM,
@@ -167,9 +156,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     // Return the heigth for the cell
     // this information is present in the CellViewModel
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cellVM = self.viewModel?.item(at: indexPath) as? TableCellViewModel else {
-            return UITableView.automaticDimension
-        }
+        let cellVM = self.viewModel.item(at: indexPath) as! TableCellViewModel
         
         return CGFloat(cellVM.height)
     }
@@ -178,7 +165,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     // here only the action Delete is present
     // only TableEditedCellViewModel can be delete ( in Favorite so )
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let cellVM = self.viewModel?.item(at: indexPath) as? FavoriteCellViewModel else {
+        guard let cellVM = self.viewModel.item(at: indexPath) as? FavoriteCellViewModel else {
             return
         }
         
@@ -190,10 +177,10 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
             // save the context with changes
             try? AppDelegate.viewContext.save()
             // remove the cell in the TableView
-            self.viewModel?.remove(at: indexPath)
+            self.viewModel.remove(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            if self.viewModel?.sections[0].cellsVM.count == 0 {
-                self.viewModel?.loadData{ [weak self] in
+            if self.viewModel.sections[0].cellsVM.count == 0 {
+                self.viewModel.loadData{ [weak self] in
                     self?.registerCells()
                     self?.tableView.reloadData()
                 }
@@ -205,7 +192,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     // we add an action "delete" with a swap on the left
     // only cell with type TableEditedCellViewModel can be Edited
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        guard let cellVM = self.viewModel?.item(at: indexPath) as? TableEditedCellViewModel else {
+        guard let cellVM = self.viewModel.item(at: indexPath) as? TableEditedCellViewModel else {
             return .none
         }
         

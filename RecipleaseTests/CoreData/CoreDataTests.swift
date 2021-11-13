@@ -11,9 +11,7 @@ import CoreData
 
 class CoreDataTests : XCTestCase {
     
-    func testAddFavoriteRecipe() {
-        
-      
+    var favoriteRecipe : FavoriteRecipe {
         let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
         favoriteRecipe.url = "www.blabla.com"
         favoriteRecipe.title = "blabla"
@@ -21,6 +19,15 @@ class CoreDataTests : XCTestCase {
         favoriteRecipe.ingredients = ["banana","apple"]
         favoriteRecipe.yield = String(20)
         favoriteRecipe.totalTime = String(30)
+        return favoriteRecipe
+    }
+    
+    func testAddFavoriteRecipe_CheckTheRecipe_DeleteTheRecip() {
+        
+        // Given : add a favorite Recipe in CoreData
+        // save the Favorite Recipe
+        let favorite = self.favoriteRecipe
+        
         try? AppDelegate.viewContext.save()
         
         let request : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
@@ -28,10 +35,12 @@ class CoreDataTests : XCTestCase {
             return
         }
         
+        // Then 1 Favorite Recipe is present in CoreData
         XCTAssertEqual(favoriteArray.count, 1)
         
         let firstFavorite = favoriteArray.first
         
+        // Test if all Informations are present
         XCTAssertEqual(firstFavorite?.url, "www.blabla.com")
         XCTAssertEqual(firstFavorite?.title, "blabla")
         XCTAssertEqual(firstFavorite?.image, "www.blabla.com")
@@ -39,8 +48,9 @@ class CoreDataTests : XCTestCase {
         XCTAssertEqual(firstFavorite?.yield, String(20))
         XCTAssertEqual(firstFavorite?.totalTime, String(30))
         
+        // delete the favorite Recipe
         let context = AppDelegate.viewContext
-        context.delete(favoriteRecipe)
+        context.delete(favorite)
         try? AppDelegate.viewContext.save()
         
         let request2 : NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
@@ -48,8 +58,8 @@ class CoreDataTests : XCTestCase {
             return
         }
         
+        // CoreData is now empty
         XCTAssertEqual(favoriteRecipe.count, 0)
     }
-    
-    
+   
 }
