@@ -19,8 +19,12 @@ class FavoriteDetailsSection : Section {
         self.cellsVM = [CellViewModel]()
         self.favorite = favorite
         
+        self.cellsVM.append(IngredientsSearchCellViewModel(ingredientLine: self.favorite.title!))
+        
         // we add the top on the page Favorite Details
         self.cellsVM.append(FavoriteDetailsCellViewModel(favorite: favorite))
+        
+        self.cellsVM.append(IngredientsSearchCellViewModel(ingredientLine: "Ingredients : "))
         
         for index in 0..<favorite.ingredients!.count {
             // we add one line for each ingredients

@@ -14,9 +14,11 @@ class IngredientSearchTableViewCell: UITableViewCell {
     
     //configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
-        guard let tableCVM = cellViewModel as? ingredientLineCellViewModel else {
+        guard let tableCVM = cellViewModel as? IngredientsSearchCellViewModel else {
             return
         }
-        self.IngredientLabel.text = "      - "+tableCVM.ingredientLine
+        self.IngredientLabel.text = tableCVM.ingredientLine
+        
+        
     }
 }

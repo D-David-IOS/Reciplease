@@ -9,7 +9,7 @@ import Foundation
 
 @objc protocol RoutingEntry {
     
-    // navigationStyle is an enum, it reprensent how to show the new controller(push, pop, etc...)
+    // navigationStyle is an enum, it represent how to show the new controller(push, pop, etc...)
     var navigationStyle: NavigationStyle { get }
     
     // The destination Controller with a specific ViewModel

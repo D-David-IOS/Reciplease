@@ -14,7 +14,7 @@ class IngredientsSearchCellViewModel : TableCellViewModel {
     
     var indexPath: IndexPath?
     
-    var nibName: String? = "IngredientLineTableViewCell"
+    var nibName: String? = "IngredientSearchTableViewCell"
     
     lazy var reuseIdentifier: String = String(describing: self)
 

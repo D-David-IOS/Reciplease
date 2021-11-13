@@ -18,8 +18,14 @@ class RecipDetailsSection : Section {
         self.cellsVM = [CellViewModel]()
         self.recipe = recipe
         
+        // the Recette Title
+        self.cellsVM.append(IngredientsSearchCellViewModel(ingredientLine: self.recipe.label))
+        
         // represent the top in the page Recipe Details
         self.cellsVM.append(RecipDetailsCellViewModel(recipe: recipe))
+        
+        // "Ingredients :"
+        self.cellsVM.append(IngredientsSearchCellViewModel(ingredientLine: "Ingredients : "))
         
         for index in 0..<recipe.ingredientLines.count {
             // we add one ingredient line for each ingredients

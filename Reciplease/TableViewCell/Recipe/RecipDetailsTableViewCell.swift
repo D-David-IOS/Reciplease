@@ -22,6 +22,9 @@ class RecipDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
     
+    var saved = false
+    var favorite : FavoriteRecipe?
+    
     // configure the cell
     override func configure(cellViewModel : CellViewModel, from controller: UIViewController) {
         guard let tableCVM = cellViewModel as? RecipDetailsCellViewModel else {
@@ -42,9 +45,13 @@ class RecipDetailsTableViewCell: UITableViewCell {
     
     // change the star color to yellow and add a new favorite recipe in Coredata
     @IBAction func addFavorite(_ sender: Any) {
-        starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        starButton.isEnabled = false
-        saveRecip(recipe: recipe!)
+        if self.saved {
+            starButton.setImage(UIImage(systemName: "star"), for: .normal)
+            deleteRecipe(favorite : self.favorite!)
+        } else {
+            starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            saveRecip(recipe: self.recipe!)
+        }
     }
     
     // this function can be used for save a Recipe in CoreData
@@ -57,5 +64,15 @@ class RecipDetailsTableViewCell: UITableViewCell {
         favoriteRecipe.yield = String(recipe.yield)
         favoriteRecipe.totalTime = String(recipe.totalTime)
         try? AppDelegate.viewContext.save()
+        self.favorite = favoriteRecipe
+        self.saved = true
+    }
+    
+    private func deleteRecipe(favorite : FavoriteRecipe){
+        let context = AppDelegate.viewContext
+        
+        context.delete(self.favorite!)
+        try? AppDelegate.viewContext.save()
+        self.saved = false
     }
 }
